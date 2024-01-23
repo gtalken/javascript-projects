@@ -43,4 +43,4 @@ if (crewStatus && computerStatusCode === 200 && spaceSuitsOn) {
  } else {
     console.log("all systems go");
  }
-console.log(/* "Yes" or "No" */);
+console.log("Yes");

@@ -19,10 +19,45 @@ function holdStatus(arr){
 }
 
 let fuelLevel = 200000;
-let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
+let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold',
+ 'water', 'AE-35 unit'];
 
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
+
+let nonSuspiciousFunction = function(a) {
+  if (checkFuel(a) === 'green') {
+     return a - 100001;
+  }
+  else if (checkFuel(a) === 'yellow') {
+     return a - 50001;
+  }
+  else {
+     return a;
+  }
+};
+
+let innocentVariable = function(fuelLevel, cargoHold) {
+  let stolenItems = [];
+  let initialItemCount = cargoHold.length;
+  
+  if (cargoHold.length >= 2) {
+      stolenItems = cargoHold.splice(0, 2, 'worthless1', 'worthless2');
+  } else {
+      console.log("Not enough items to steal.");
+      return;
+  }
+}
+
+ console.log("Receipt for the Accountant:");
+ console.log("Stolen Items:", stolenItems);
+ console.log("Remaining Cargo Hold:", cargoHold);
+ 
+
+ let irs = function(levelOfFuel, itemsInCargo) {
+  let arr = deckMops(itemsInCargo);
+  return `Raided ${nonSuspiciousFunction(fuelLevel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold.`
+}
 
 /* Steal some fuel from the shuttle:
  * /
@@ -54,4 +89,5 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //b). Call your anonymous fuel and cargo functions from within irs.
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
-
+/*
+*/
